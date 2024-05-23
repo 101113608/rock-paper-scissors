@@ -114,5 +114,28 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice();
+function playGame() {
+    for (rounds = 0; rounds < 5; rounds++) {
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+
+        alert(playRound(humanSelection, computerSelection));
+    }
+
+    if (humanScore > computerScore) {
+        return `
+        Your score: ${humanScore}.
+        Computer's score: ${computerScore}.
+
+        Congratulations! You have won.`;
+    }
+    else {
+        return `
+        Your score: ${humanScore}.
+        Computer's score: ${computerScore}.
+
+        You have lost. Better luck next time.`;
+    }
+}
+
+alert(playGame());
