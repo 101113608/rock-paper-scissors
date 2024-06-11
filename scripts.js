@@ -75,80 +75,37 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
+    let humanWon = false;
     switch (humanChoice) {
         case "rock":
             if (computerChoice === "paper") {
                 computerScore++;
-                return `
-                You picked: ${humanChoice}.
-                Computer picked: ${computerChoice}.
-
-                You lose. Rock loses to paper.`;
             }
             else if (computerChoice === "scissors") {
                 humanScore++;
-                return `
-                You picked: ${humanChoice}.
-                Computer picked: ${computerChoice}.
-
-                You win! Rock beats scissors.`;
+                humanWon = true;
             }
-            else {
-                return `
-                You picked: ${humanChoice}.
-                Computer picked: ${computerChoice}.
-
-                Tied! Both picked rock.`;
-            }
+            break;
         case "paper":
             if (computerChoice === "scissors") {
                 computerScore++;
-                return `
-                You picked: ${humanChoice}.
-                Computer picked: ${computerChoice}.
-
-                You lose. Paper loses to scissors.`;
             }
             else if (computerChoice === "rock") {
                 humanScore++;
-                return `
-                You picked: ${humanChoice}.
-                Computer picked: ${computerChoice}.
-
-                You win! Paper beats rock.`;
+                humanWon = true;
             }
-            else {
-                return `
-                You picked: ${humanChoice}.
-                Computer picked: ${computerChoice}.
-
-                Tied! Both picked paper.`;
-            }
+            break;
         case "scissors":
             if (computerChoice === "rock") {
                 computerScore++;
-                return `
-                You picked: ${humanChoice}.
-                Computer picked: ${computerChoice}.
-
-                You lose. Scissors loses to rock.`;
             }
             else if (computerChoice === "paper") {
                 humanScore++;
-                return `
-                You picked: ${humanChoice}.
-                Computer picked: ${computerChoice}.
-
-                You win! Scissors beats paper.`;
+                humanWon = true;
             }
-            else {
-                return `
-                You picked: ${humanChoice}.
-                Computer picked: ${computerChoice}.
-
-                Tied! Both picked scissors.`;
-            }
+            break;
     }
+    paraRoundOutcome.textContent = roundWinner(humanWon, humanChoice, computerChoice);
 }
 
 function roundWinner(humanWon, humanChoice, computerChoice) {
