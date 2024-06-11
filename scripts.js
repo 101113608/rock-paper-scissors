@@ -2,6 +2,18 @@ let humanScore = 0;
 let computerScore = 0;
 
 const bodyRps = document.querySelector("body");
+const divScores = document.createElement("div");
+const paraRoundOutcome = document.createElement("p");
+const paraGameOutcome = document.createElement("p");
+
+// To add new lines to text content. This is coupled with \r\n inside of a textContent.
+divScores.style["white-space"] = "pre"
+paraRoundOutcome.style["white-space"] = "pre";
+paraGameOutcome.style["white-space"] = "pre";
+
+bodyRps.appendChild(divScores);
+bodyRps.appendChild(paraRoundOutcome);
+bodyRps.appendChild(paraGameOutcome);
 
 bodyRps.addEventListener("click", (e) => {
     let target = e.target;
