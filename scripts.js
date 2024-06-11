@@ -15,6 +15,8 @@ bodyRps.appendChild(divScores);
 bodyRps.appendChild(paraRoundOutcome);
 bodyRps.appendChild(paraGameOutcome);
 
+updateScore(humanScore, computerScore);
+
 bodyRps.addEventListener("click", (e) => {
     let target = e.target;
     let humanChoice = "";
@@ -147,4 +149,8 @@ function playRound(humanChoice, computerChoice) {
                 Tied! Both picked scissors.`;
             }
     }
+}
+
+function updateScore(humanScore, computerScore) {
+    divScores.textContent = `\r\nUser Score: ${humanScore}\r\nComputer Score: ${computerScore}`;
 }
