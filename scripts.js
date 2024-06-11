@@ -1,6 +1,29 @@
 let humanScore = 0;
 let computerScore = 0;
 
+const bodyRps = document.querySelector("body");
+
+bodyRps.addEventListener("click", (e) => {
+    let target = e.target;
+    let humanChoice = "";
+    if (target.tagName.toLowerCase() === `button`) {
+        switch (target.id) {
+            case `rock`:
+                console.log(`Rock was selected!`);
+                humanChoice = `rock`;
+                break;
+            case `paper`:
+                console.log(`Paper was selected!`);
+                humanChoice = `paper`;
+                break;
+            case `scissors`:
+                console.log(`Scissors was selected!`);
+                humanChoice = `scissors`;
+                break;
+        }
+    }
+})
+
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 10) % 3 + 1;
 
