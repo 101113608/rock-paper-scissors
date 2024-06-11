@@ -38,6 +38,10 @@ bodyRps.addEventListener("click", (e) => {
 
         playRound(humanChoice, getComputerChoice());
         updateScore(humanScore, computerScore);
+
+        if (humanScore >= 5 || computerScore >= 5) {
+            gameOver();
+        }
     }
 })
 
@@ -104,4 +108,19 @@ function roundWinner(humanWon, humanChoice, computerChoice) {
 
 function updateScore(humanScore, computerScore) {
     divScores.textContent = `\r\nUser Score: ${humanScore}\r\nComputer Score: ${computerScore}`;
+}
+
+function gameOver() {
+    bodyRps.childNodes.forEach((node => {
+        if (node.nodeName.toLowerCase() === `button`) {
+            document.querySelector(`#${node.id}`).disabled = true;
+        }
+    }))
+
+    if (humanScore > computerScore) {
+        paraGameOutcome.textContent = `\r\nCongratulations! You have won the game.`;
+    }
+    else {
+        paraGameOutcome.textContent = `\r\nYou have lost the game. Better luck next time.`;
+    }
 }
