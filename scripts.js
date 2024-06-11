@@ -151,6 +151,19 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+function roundWinner(humanWon, humanChoice, computerChoice) {
+    if (humanChoice === computerChoice) {
+        return `You picked: ${humanChoice}.\r\nComputer picked: ${computerChoice}.
+        \r\nTied! Both picked ${humanChoice}.`;
+    } else if (humanWon) {
+        return `You picked: ${humanChoice}.\r\nComputer picked: ${computerChoice}.
+        \r\nYou win! ${humanChoice} beats ${computerChoice}.`;
+    } else {
+        return `You picked: ${humanChoice}.\r\nComputer picked: ${computerChoice}.
+        \r\nYou lose. ${humanChoice} loses to ${computerChoice}.`;
+    }
+}
+
 function updateScore(humanScore, computerScore) {
     divScores.textContent = `\r\nUser Score: ${humanScore}\r\nComputer Score: ${computerScore}`;
 }
