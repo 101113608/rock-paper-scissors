@@ -35,6 +35,9 @@ bodyRps.addEventListener("click", (e) => {
                 humanChoice = `scissors`;
                 break;
         }
+
+        playRound(humanChoice, getComputerChoice());
+        updateScore(humanScore, computerScore);
     }
 })
 
